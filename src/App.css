@@ -200,21 +200,6 @@ main .slick-slide > * {
 .tv-show-info-header {
   height: 50vh;
   margin-top: 60px;
-  position: relative;
-}
-.movie-info-header button,
-.tv-show-info-header button {
-  position: absolute;
-  top: 20px;
-  left: 70px;
-  background: none;
-  border: 0;
-  cursor: pointer;
-}
-.movie-info-header button .fa-chevron-left,
-.tv-show-info-header button .fa-chevron-left {
-  color: #61dafb;
-  font-size: 25px;
 }
 
 .movie-info-header img,

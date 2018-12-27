@@ -25,10 +25,6 @@ class TvShowInfo extends Component {
     }
   }
 
-  handleBackBtn = () => {
-    this.props.history.goBack();
-  };
-
   render() {
     const { tvShowInfo } = this.props.tvShowInfo;
     const { tvShowCredits } = this.props.tvShowCredits;
@@ -55,9 +51,6 @@ class TvShowInfo extends Component {
             src={`${path}${backgroundImgSize}${tvShowInfo.backdrop_path}`}
             alt={tvShowInfo.name}
           />
-          <button onClick={this.handleBackBtn}>
-            <i className="fas fa-chevron-left" />
-          </button>
         </header>
         <main className="tv-show-info-main">
           <div className="container">

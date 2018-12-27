@@ -25,10 +25,6 @@ class MovieInfo extends Component {
     }
   }
 
-  handleBackBtn = () => {
-    this.props.history.goBack();
-  };
-
   render() {
     const { movieInfo } = this.props.movieInfo;
     const { movieCredits } = this.props.movieCredits;
@@ -55,9 +51,6 @@ class MovieInfo extends Component {
             src={`${path}${backgroundImgSize}${movieInfo.backdrop_path}`}
             alt={movieInfo.title}
           />
-          <button onClick={this.handleBackBtn}>
-            <i className="fas fa-chevron-left" />
-          </button>
         </header>
         <main className="movie-info-main">
           <div className="container">
