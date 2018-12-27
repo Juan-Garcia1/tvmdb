@@ -1,0 +1,415 @@
+/* background-color: #282c34; */
+/* color: #61dafb; */
+
+/*
+* 1. NAV
+* 2. VERTICAL CAROUSEL
+* 3. HORIZONTAL CAROUSEL
+* 4. LOADING SCREEN
+* 5. MOVIE-INFO & TV SHOW-INFO
+* 6. MAIN
+* 7. FOOTER
+* 8. CAROUSEL ARROWS
+* 9. MEDIA QUERIES
+*/
+
+.container {
+  width: 85vw;
+  margin: auto;
+}
+
+.slick-slide,
+.slick-active {
+  border: none !important;
+}
+
+.slick-slide,
+.slick-slide * {
+  outline: none !important;
+}
+
+.truncate {
+  width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: auto;
+  margin-right: auto;
+}
+.truncate-small {
+  width: 125px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+
+/* 1. NAV */
+nav {
+  border-top: solid 4px #61dafb;
+  background: #282c34;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 100;
+}
+.nav-btn {
+  background: none;
+  border: 0;
+  font-size: 25px;
+  color: #626977;
+  margin-top: 14px;
+  cursor: pointer;
+  outline: 0;
+}
+.nav-btn:hover {
+  color: #61dafb;
+}
+nav ul {
+  background: #282c34;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 230px;
+  transform: translateX(-100%);
+  transition: 0.4s ease;
+}
+nav ul li a {
+  display: block;
+  padding: 14px;
+  color: #626977;
+  font-weight: 500;
+}
+nav ul li a:hover {
+  color: #fff;
+  background: #61dafb;
+}
+
+.selected {
+  color: #fff;
+  background: #61dafb;
+}
+
+.open {
+  transform: translateX(0);
+}
+
+/* 2. VERTICAL CAROUSEL */
+.v-carousel-item img {
+  height: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.main-header,
+.main-tv {
+  overflow: hidden;
+  margin-top: 60px;
+}
+
+.v-carousel-item {
+  margin: 0;
+  height: 50vh;
+  vertical-align: top;
+  position: relative;
+}
+
+.v-carousel-item figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.v-carousel-item figcaption > div {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.v-carousel-item figcaption h4 {
+  font-weight: 400;
+  color: #61dafb;
+}
+
+/* 3. HORIZONTAL CAROUSEL */
+
+.carousel-name {
+  color: #61dafb;
+  margin-bottom: 15px;
+}
+
+main .slick-slide > * {
+  margin-right: 8px;
+}
+
+.h-carousel-item:hover figcaption h5 {
+  color: #61dafb;
+}
+
+.h-carousel-item img {
+  width: 100%;
+  height: 210px;
+}
+
+.h-carousel-item figcaption {
+  text-align: center;
+  color: #626977;
+  margin-top: 5px;
+}
+
+/* 4. LOADING SCREEN */
+.loading {
+  z-index: 10000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #626977;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loading-content img {
+  width: 100px;
+  display: block;
+  margin: auto;
+}
+.loading-content p {
+  color: #61dafb;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* 5. MOVIE-INFO & TV SHOW-INFO */
+.movie-info-header,
+.tv-show-info-header {
+  height: 50vh;
+  margin-top: 60px;
+  position: relative;
+}
+.movie-info-header button,
+.tv-show-info-header button {
+  position: absolute;
+  top: 20px;
+  left: 70px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.movie-info-header button .fa-chevron-left,
+.tv-show-info-header button .fa-chevron-left {
+  color: #61dafb;
+  font-size: 25px;
+}
+
+.movie-info-header img,
+.tv-show-info-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.column {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-info-poster,
+.tv-show-info-poster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.movie-info-poster img,
+.tv-show-info-poster img {
+  border: solid 2px #61dafb;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  margin-top: -25%;
+  z-index: 0;
+}
+.movie-info-details h2,
+.tv-show-info-details h2 {
+  color: #fff;
+  text-align: center;
+}
+
+.movie-info-section,
+.tv-show-info-section {
+  padding-top: 40px;
+}
+.movie-info-section h3,
+.tv-show-info-section h3 {
+  margin-bottom: 20px;
+  color: #61dafb;
+  font-weight: 500;
+}
+.movie-info-summary p,
+.tv-show-info-summary p {
+  line-height: 1.5;
+  color: #626977;
+  font-weight: 500;
+}
+
+.similar-movies-row {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.similar-movies-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 6. MAIN */
+main {
+  padding: 20px 0;
+}
+.main-movie section,
+.main-tv-show section {
+  margin-bottom: 30px;
+}
+
+/* 7. FOOTER */
+footer {
+  color: #626977;
+  padding: 30px 0;
+  background: #0f1726;
+}
+footer p {
+  line-height: 1.5;
+  font-weight: 500;
+}
+footer a {
+  color: #61dafb;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+.social-links {
+  margin: 20px 0;
+}
+.social-links a {
+  margin-right: 14px;
+}
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+.footer-img {
+  width: 40%;
+}
+
+/* 8. CAROUSEL ARROWS */
+.slick-next,
+.slick-prev {
+  top: 105px;
+  color: initial !important;
+  background: rgba(0, 0, 0, 0.7);
+  border: 0;
+  height: 210px;
+  width: 35px;
+  z-index: 1;
+}
+
+.slick-next:link,
+.slick-next:hover,
+.slick-next:active,
+.slick-next:visited,
+.slick-prev:link,
+.slick-prev:hover,
+.slick-prev:active,
+.slick-prev:visited {
+  background: rgba(0, 0, 0, 0.8);
+}
+.slick-slide.slick-current .h-carousel-item img {
+  border: solid 2px #61dafb;
+}
+.slick-prev {
+  left: 0px;
+}
+.slick-next {
+  right: 0px;
+}
+.slick-prev::before {
+  content: "\f104";
+  font-family: "Font Awesome 5 Free";
+  color: #61dafb;
+  font-weight: 900;
+  font-size: 25px;
+}
+.slick-next::before {
+  content: "\f105";
+  font-family: "Font Awesome 5 Free";
+  color: #61dafb;
+  font-weight: 900;
+  font-size: 25px;
+}
+
+/* 9. MEDIA QUERIES */
+@media (min-width: 768px) {
+  .v-carousel-item {
+    height: 70vh;
+  }
+  .v-carousel-item figcaption h2 {
+    font-size: 2rem;
+  }
+  .similar-movies-col {
+    flex: 20%;
+  }
+
+  .movie-info-header,
+  .tv-show-info-header {
+    height: 80vh;
+  }
+  .movie-info-poster,
+  .tv-show-info-poster {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .movie-info-poster img,
+  .tv-show-info-poster img {
+    margin-bottom: 0;
+    margin-top: -10%;
+  }
+  .movie-info-details,
+  .tv-show-info-details {
+    padding: 0 18px;
+  }
+  .footer-col {
+    flex: 1;
+  }
+  .footer-img {
+    display: block;
+    margin-left: auto;
+  }
+  .social-links {
+    margin-bottom: 0;
+  }
+}
