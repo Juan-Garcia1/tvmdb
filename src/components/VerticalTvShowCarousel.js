@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
 
-const VerticalTvShowCarousel = ({ airingToday, config }) => {
+const VerticalTvShowCarousel = ({ airingToday, config, genres }) => {
   const settings = {
     dots: false,
     arrows: false,
@@ -31,6 +31,15 @@ const VerticalTvShowCarousel = ({ airingToday, config }) => {
                   <div className="container">
                     <h4>Airing Today</h4>
                     <h2>{tv.name}</h2>
+                    {
+                      tv.genre_ids.map(genreId =>
+                        genres.genres.filter(genre => genre.id === genreId)
+                          .map(genre => genre.name)
+                      )
+                        .reduce((prev, next) => prev.concat(next))
+                        .slice(0, 3)
+                        .map((genre, i) => <span key={i}>{genre}</span>)
+                    }
                   </div>
                 </div>
               </figcaption>
