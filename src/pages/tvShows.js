@@ -29,9 +29,9 @@ class Tv extends Component {
     ) {
       return <Loading name="Tv Shows" />;
     }
-    // if (Object.keys(tvShowGenres).length === 0) {
-    //   return <Loading name="Tv Shows" />
-    // }
+    if (Object.keys(tvShowGenres).length === 0) {
+      return <Loading name="Tv Shows" />
+    }
     return (
       <Fragment>
         <header className="main-header">
