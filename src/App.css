@@ -130,7 +130,7 @@ nav ul li a:hover {
   width: 100%;
   height: 100%;
   color: white;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .v-carousel-item figcaption > div {
@@ -143,6 +143,16 @@ nav ul li a:hover {
 .v-carousel-item figcaption h4 {
   font-weight: 400;
   color: #61dafb;
+}
+
+.v-carousel-item figcaption span {
+  background: #61dafb;
+  padding: 4px 16px;
+  border-radius: 50px;
+  margin: 8px 10px 8px 0;
+  display: inline-block;
+  font-size: 14px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.40)
 }
 
 /* 3. HORIZONTAL CAROUSEL */

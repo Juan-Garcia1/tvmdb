@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
 
-const VerticalMovieCarousel = ({ nowPlaying, config }) => {
+const VerticalMovieCarousel = ({ nowPlaying, config, genres }) => {
   const settings = {
     dots: false,
     arrows: false,
@@ -19,6 +19,7 @@ const VerticalMovieCarousel = ({ nowPlaying, config }) => {
   };
   const path = config.config.data.images.secure_base_url;
   const imgSize = config.config.data.images.backdrop_sizes[2];
+
   return (
     <Slider {...settings}>
       {nowPlaying.slice(0, 5).map(movie => (
@@ -33,6 +34,17 @@ const VerticalMovieCarousel = ({ nowPlaying, config }) => {
                 <div className="container">
                   <h4>Now Playing</h4>
                   <h2>{movie.title}</h2>
+
+                  {
+                    movie.genre_ids.map(genreId =>
+                      genres.genres.filter(genre => genre.id === genreId)
+                        .map(genre => genre.name)
+                    )
+                      .reduce((prev, next) => prev.concat(next))
+                      .slice(0, 3)
+                      .map((genre, i) => <span key={i}>{genre}</span>)
+                  }
+
                 </div>
               </div>
             </figcaption>
