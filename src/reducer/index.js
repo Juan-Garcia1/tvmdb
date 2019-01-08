@@ -8,6 +8,7 @@ import movieInfoReducer from "./movie_reducers/movieInfo";
 import movieCreditsReducer from "./movie_reducers/movieCredits";
 import similarMoviesReducer from "./movie_reducers/similarMovies";
 import movieGenresReducer from "./movie_reducers/movieGenres";
+import recommendedMoviesReducer from "./movie_reducers/recommendedMovies";
 
 import topRatedTvShowsReducer from "./tv_reducers/topRatedTvShows";
 import tvShowsAiringTodayReducer from "./tv_reducers/tvShowsAiringToday";
@@ -16,6 +17,7 @@ import tvShowInfoReducer from "./tv_reducers/tvShowInfo";
 import tvShowCreditsReducer from "./tv_reducers/tvShowCredits";
 import similarTvShowsReducer from "./tv_reducers/similarTvShows";
 import tvShowGenresReducer from "./tv_reducers/tvShowGenres";
+import recommendedTvShowsReducer from "./tv_reducers/recommendedTvShows";
 
 import configReducer from "./configReducer";
 
@@ -28,6 +30,7 @@ export default combineReducers({
   movieCredits: movieCreditsReducer,
   similarMovies: similarMoviesReducer,
   movieGenres: movieGenresReducer,
+  recommendedMovies: recommendedMoviesReducer,
   topRatedTvShows: topRatedTvShowsReducer,
   tvShowsAiringToday: tvShowsAiringTodayReducer,
   popularTvShows: popularTvShowsReducer,
@@ -35,5 +38,6 @@ export default combineReducers({
   tvShowCredits: tvShowCreditsReducer,
   similarTvShows: similarTvShowsReducer,
   tvShowGenres: tvShowGenresReducer,
+  recommendedTvShows: recommendedTvShowsReducer,
   config: configReducer
 });

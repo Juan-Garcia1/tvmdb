@@ -7,6 +7,8 @@ import { connect } from "react-redux";
 import { getMovieInfo } from "../actions/movie_actions/movieInfo";
 import { getMovieCredits } from "../actions/movie_actions/movieCredits";
 import { getSimilarMovies } from "../actions/movie_actions/similarMovies";
+import { getRecommendedMovies } from "../actions/movie_actions/recommendedMovies";
+import RecommendedMoviesList from "../components/RecommendedMoviesList";
 
 class MovieInfo extends Component {
   componentDidMount() {
@@ -14,6 +16,7 @@ class MovieInfo extends Component {
     this.props.getMovieInfo(movieId);
     this.props.getMovieCredits(movieId);
     this.props.getSimilarMovies(movieId);
+    this.props.getRecommendedMovies(movieId);
   }
 
   UNSAFE_componentWillReceiveProps(prevProps) {
@@ -22,6 +25,7 @@ class MovieInfo extends Component {
       this.props.getMovieInfo(newMovieId);
       this.props.getMovieCredits(newMovieId);
       this.props.getSimilarMovies(newMovieId);
+      this.props.getRecommendedMovies(newMovieId);
     }
   }
 
@@ -29,6 +33,7 @@ class MovieInfo extends Component {
     const { movieInfo } = this.props.movieInfo;
     const { movieCredits } = this.props.movieCredits;
     const { similarMovies } = this.props.similarMovies;
+    const { recommendedMovies } = this.props.recommendedMovies;
     const { config } = this.props.config;
 
     const path = config.data.images.secure_base_url;
@@ -37,12 +42,14 @@ class MovieInfo extends Component {
 
     if (
       Object.keys(movieInfo).length === 0 ||
-      Object.keys(similarMovies).length === 0
+      Object.keys(similarMovies).length === 0 ||
+      Object.keys(recommendedMovies).length === 0
     ) {
       return <Loading />;
     }
     // similar movies
     const movies = similarMovies ? similarMovies.results : "";
+
     return (
       <Fragment>
         <header className="movie-info-header">
@@ -78,6 +85,13 @@ class MovieInfo extends Component {
               <h3>Similar Movies</h3>
               <SimilarMoviesList similarMovies={movies} config={config} />
             </section>
+            <section className="movie-info-section">
+              <h3>Recommended Movies</h3>
+              <RecommendedMoviesList
+                recommendedMovies={recommendedMovies.results}
+                config={config}
+              />
+            </section>
           </div>
         </main>
       </Fragment>
@@ -90,6 +104,7 @@ const mapStateToProps = state => {
     movieInfo: state.movieInfo,
     movieCredits: state.movieCredits,
     similarMovies: state.similarMovies,
+    recommendedMovies: state.recommendedMovies,
     config: state.config
   };
 };
@@ -99,6 +114,7 @@ export default connect(
   {
     getMovieInfo,
     getMovieCredits,
-    getSimilarMovies
+    getSimilarMovies,
+    getRecommendedMovies
   }
 )(MovieInfo);
