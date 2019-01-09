@@ -7,6 +7,8 @@ import { connect } from "react-redux";
 import { getTvShowInfo } from "../actions/tv_actions/tvShowInfo";
 import { getTvShowCredits } from "../actions/tv_actions/tvShowCredits";
 import { getSimilarTvShows } from "../actions/tv_actions/similarTvShows";
+import { getRecommendedTvShows } from "../actions/tv_actions/recommendedTvShows";
+import RecommendedTvShowsList from "../components/RecommendedTvShowsList";
 
 class TvShowInfo extends Component {
   componentDidMount() {
@@ -14,6 +16,7 @@ class TvShowInfo extends Component {
     this.props.getTvShowInfo(tvShowId);
     this.props.getTvShowCredits(tvShowId);
     this.props.getSimilarTvShows(tvShowId);
+    this.props.getRecommendedTvShows(tvShowId);
   }
 
   UNSAFE_componentWillReceiveProps(prevProps) {
@@ -22,6 +25,7 @@ class TvShowInfo extends Component {
       this.props.getTvShowInfo(newTvShowId);
       this.props.getTvShowCredits(newTvShowId);
       this.props.getSimilarTvShows(newTvShowId);
+      this.props.getRecommendedTvShows(newTvShowId);
     }
   }
 
@@ -29,6 +33,7 @@ class TvShowInfo extends Component {
     const { tvShowInfo } = this.props.tvShowInfo;
     const { tvShowCredits } = this.props.tvShowCredits;
     const { similarTvShows } = this.props.similarTvShows;
+    const { recommendedTvShows } = this.props.recommendedTvShows;
     const { config } = this.props.config;
 
     const path = config.data.images.secure_base_url;
@@ -37,7 +42,8 @@ class TvShowInfo extends Component {
 
     if (
       Object.keys(tvShowInfo).length === 0 ||
-      Object.keys(similarTvShows).length === 0
+      Object.keys(similarTvShows).length === 0 ||
+      Object.keys(recommendedTvShows).length === 0
     ) {
       return <Loading />;
     }
@@ -78,6 +84,13 @@ class TvShowInfo extends Component {
               <h3>Similar Tv Shows</h3>
               <SimilarTvShowsList similarTvShows={tvShows} config={config} />
             </section>
+            <section className="tv-show-info-section">
+              <h3>Recommended Tv Shows</h3>
+              <RecommendedTvShowsList
+                recommendedTvShows={recommendedTvShows}
+                config={config}
+              />
+            </section>
           </div>
         </main>
       </Fragment>
@@ -90,6 +103,7 @@ const mapStateToProps = state => {
     tvShowInfo: state.tvShowInfo,
     tvShowCredits: state.tvShowCredits,
     similarTvShows: state.similarTvShows,
+    recommendedTvShows: state.recommendedTvShows,
     config: state.config
   };
 };
@@ -99,6 +113,7 @@ export default connect(
   {
     getTvShowInfo,
     getTvShowCredits,
-    getSimilarTvShows
+    getSimilarTvShows,
+    getRecommendedTvShows
   }
 )(TvShowInfo);
