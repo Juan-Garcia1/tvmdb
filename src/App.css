@@ -379,7 +379,9 @@ footer a:hover {
   .v-carousel-item figcaption h2 {
     font-size: 2rem;
   }
-  .similar-movies-col {
+  .similar-movies-col,
+  .recommended-movies-col,
+  .recommended-tv-shows-col {
     flex: 20%;
   }
 
